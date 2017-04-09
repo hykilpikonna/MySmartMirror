@@ -9,9 +9,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import static cc.moecraft.products.smartmirror.Essentials.NumberConversions.toDouble;
-import static cc.moecraft.products.smartmirror.Essentials.NumberConversions.toInt;
-import static cc.moecraft.products.smartmirror.Essentials.NumberConversions.toLong;
+import static cc.moecraft.products.smartmirror.Essentials.NumberConvertions.toDouble;
+import static cc.moecraft.products.smartmirror.Essentials.NumberConvertions.toInt;
+import static cc.moecraft.products.smartmirror.Essentials.NumberConvertions.toLong;
 
 /**
  * A type of {@link ConfigurationSection} that is stored in memory.

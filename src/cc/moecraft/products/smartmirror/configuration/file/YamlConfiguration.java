@@ -6,13 +6,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.Reader;
 import java.util.Map;
-import java.util.logging.Level;
 
 import cc.moecraft.products.smartmirror.Essentials.Validate;
 import cc.moecraft.products.smartmirror.configuration.Configuration;
 import cc.moecraft.products.smartmirror.configuration.ConfigurationSection;
 import cc.moecraft.products.smartmirror.configuration.InvalidConfigurationException;
-import cc.moecraft.products.smartmirror.Main.*;
+import org.apache.log4j.Level;
 import org.yaml.snakeyaml.DumperOptions;
 import org.yaml.snakeyaml.Yaml;
 import org.yaml.snakeyaml.error.YAMLException;
@@ -164,9 +163,9 @@ public class YamlConfiguration extends FileConfiguration {
             config.load(file);
         } catch (FileNotFoundException ex) {
         } catch (IOException ex) {
-            log(Level.SEVERE, "Cannot load " + file);
+            log(Level.ERROR, "Cannot load " + file);
         } catch (InvalidConfigurationException ex) {
-            log(Level.SEVERE, "Cannot load " + file);
+            log(Level.ERROR, "Cannot load " + file);
         }
 
         return config;
@@ -181,9 +180,9 @@ public class YamlConfiguration extends FileConfiguration {
         try {
             config.load(stream);
         } catch (IOException ex) {
-            log(Level.SEVERE, "Cannot load configuration from stream");
+            log(Level.ERROR, "Cannot load configuration from stream");
         } catch (InvalidConfigurationException ex) {
-            log(Level.SEVERE, "Cannot load configuration from stream");
+            log(Level.ERROR, "Cannot load configuration from stream");
         }
 
         return config;
@@ -199,9 +198,9 @@ public class YamlConfiguration extends FileConfiguration {
         try {
             config.load(reader);
         } catch (IOException ex) {
-            log(Level.SEVERE, "Cannot load configuration from stream");
+            log(Level.ERROR, "Cannot load configuration from stream");
         } catch (InvalidConfigurationException ex) {
-            log(Level.SEVERE, "Cannot load configuration from stream");
+            log(Level.ERROR, "Cannot load configuration from stream");
         }
 
         return config;

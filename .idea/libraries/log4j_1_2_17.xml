@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="google-common">
+  <library name="log4j-1.2.17">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../Java/API/google-common.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../../Java/API/log4j-1.2.17.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

@@ -1,14 +1,14 @@
 package cc.moecraft.products.smartmirror;
 
-import java.util.logging.Level;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
 
 import static cc.moecraft.products.smartmirror.Main.debug;
 
-/**
- * Created by Kilpikonna on 2017/4/8 0008.
- */
 public class logger
 {
+    private static Logger log = Logger.getLogger(logger.class);
+
     public static void Debug(String s)
     {
         if (debug)
@@ -34,11 +34,11 @@ public class logger
 
     public static void log(String s)
     {
-        log(Level.INFO, s);
+        log.info(s);
     }
 
     public static void log(Level l, String s)
     {
-        logger.log(l, s);
+        log.log(l, s);
     }
 }

@@ -1,9 +1,6 @@
 package cc.moecraft.products.smartmirror.Essentials;
 
-/**
- * Created by Kilpikonna on 2017/4/8 0008.
- */
-public final class NumberConversions
+public class NumberConvertions
 {
     public static int floor(double num)
     {
