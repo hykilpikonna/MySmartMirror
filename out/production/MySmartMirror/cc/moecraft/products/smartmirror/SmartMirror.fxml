@@ -24,6 +24,11 @@
       <Pane prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #000000;" GridPane.rowIndex="1">
          <children>
             <Pane layoutX="60.0" layoutY="57.0" prefHeight="83.0" prefWidth="200.0" />
+            <Text fill="WHITE" layoutX="265.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="441.5735778808594">
+               <font>
+                  <Font name="Segoe UI Light" size="96.0" />
+               </font>
+            </Text>
          </children></Pane>
    </children>
 </GridPane>

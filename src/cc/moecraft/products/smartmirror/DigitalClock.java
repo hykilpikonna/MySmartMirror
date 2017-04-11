@@ -3,6 +3,9 @@ package cc.moecraft.products.smartmirror;
 import javafx.animation.*;
 import javafx.event.*;
 import javafx.scene.control.Label;
+import javafx.scene.paint.Paint;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.util.Duration;
 import cc.moecraft.products.smartmirror.Essentials.StringUtils;
 
@@ -12,7 +15,7 @@ import static cc.moecraft.products.smartmirror.Main.config;
 import static cc.moecraft.products.smartmirror.Main.exoThinFontCSS;
 import static cc.moecraft.products.smartmirror.logger.Debug;
 
-public class DigitalClock extends Label
+public class DigitalClock extends Text
 {
     public DigitalClock() {
         bindToTime();
@@ -50,12 +53,14 @@ public class DigitalClock extends Label
         timeline.play();
 
         setStyle(
-                " -fx-font: "      + config.getInt("DigitalClock.Font.Size") + "pt \"" + config.getString("DigitalClock.Font.Name") + "\";" +
-                " -fx-text-fill: rgb(" + config.getInt("DigitalClock.Font.Color.Red") + ", " + config.getInt("DigitalClock.Font.Color.Green") + ", " + config.getInt("DigitalClock.Font.Color.Blue") + ");"
+                " -fx-font: "      + config.getInt("DigitalClock.Font.Size") + "pt \"" + config.getString("DigitalClock.Font.Name") + "\";"
         );
-        getStylesheets().add(exoThinFontCSS);
+        setFill(Paint.valueOf("rgb(" + config.getInt("DigitalClock.Font.Color.Red") + ", " + config.getInt("DigitalClock.Font.Color.Green") + ", " + config.getInt("DigitalClock.Font.Color.Blue") + ");"));
+
         Debug("[数字表][坐标] X = " + config.getInt("DigitalClock.Position.X") + "; Y = " + config.getInt("DigitalClock.Position.Y"));
+        setTextAlignment(TextAlignment.JUSTIFY);
         setLayoutX(config.getInt("DigitalClock.Position.X"));
         setLayoutY(config.getInt("DigitalClock.Position.Y"));
+
     }
 }

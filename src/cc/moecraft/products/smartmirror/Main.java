@@ -45,7 +45,11 @@ public class Main extends Application
         root = FXMLLoader.load(getClass().getResource("SmartMirror.fxml"));
         root.setStyle("-fx-background-color: #000000");
 
-        root.getChildren().add(new DigitalClock());
+        Pane digitalClockPane = new Pane();
+        digitalClockPane.getStylesheets().add(exoThinFontCSS);
+        digitalClockPane.getChildren().add(new DigitalClock());
+
+        root.getChildren().add(digitalClockPane);
         scene = new Scene(root, screenSizeWidth, screenSizeHeight);
 
         Main.stage = stage;
@@ -80,8 +84,8 @@ public class Main extends Application
             log("[配置] 检测到配置文件是新的, 正在储存默认配置");
             config.addDefault("Generated", true);
             //时钟
-            config.addDefault("DigitalClock.Position.X", 60);
-            config.addDefault("DigitalClock.Position.Y", 60);
+            config.addDefault("DigitalClock.Position.X", 40);
+            config.addDefault("DigitalClock.Position.Y", 120);
             config.addDefault("DigitalClock.Font.Size", 76);
             config.addDefault("DigitalClock.Font.Name", "Exo Thin");
             config.addDefault("DigitalClock.Font.Color.Red", 255);
