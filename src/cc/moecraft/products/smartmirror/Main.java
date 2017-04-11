@@ -4,7 +4,6 @@ import cc.moecraft.products.smartmirror.configuration.file.YamlConfiguration;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -12,7 +11,6 @@ import java.io.File;
 import java.io.IOException;
 
 import static cc.moecraft.products.smartmirror.logger.Debug;
-import static cc.moecraft.products.smartmirror.logger.WHITE;
 import static cc.moecraft.products.smartmirror.logger.log;
 
 public class Main extends Application
@@ -34,7 +32,7 @@ public class Main extends Application
     public static Pane root;
     public static Stage stage;
     public static Scene scene;
-    public static String fontCSS;
+    public static String exoThinFontCSS;
     @Override
     public void start(Stage stage) throws Exception
     {
@@ -42,26 +40,12 @@ public class Main extends Application
 
         checkConfig();
 
-        fontCSS = Main.class.getResource("css/Fonts.css").toExternalForm();
+        exoThinFontCSS = Main.class.getResource("css/exothin.css").toExternalForm();
 
         root = FXMLLoader.load(getClass().getResource("SmartMirror.fxml"));
         root.setStyle("-fx-background-color: #000000");
 
-        Pane digitalClockPane = new Pane(new DigitalClock());
-        digitalClockPane.setLayoutX(config.getInt("DigitalClock.Position.X"));
-        digitalClockPane.setLayoutY(config.getInt("DigitalClock.Position.Y"));
-        digitalClockPane.getStylesheets().add(fontCSS);
-        digitalClockPane.setStyle(
-                        "-fx-font: "      + config.getInt("DigitalClock.Font.Size") + "pt \"" + config.getString("DigitalClock.Font.Name") + "\";" +
-                        "-fx-text-fill: rgb(" + config.getInt("DigitalClock.Font.Color.Red") + ", " + config.getInt("DigitalClock.Font.Color.Green") + ", " + config.getInt("DigitalClock.Font.Color.Blue") + ");"
-        );
-
-        Debug(
-                "-fx-font: "      + config.getInt("DigitalClock.Font.Size") + "pt \"" + config.getString("DigitalClock.Font.Name") + "\";" +
-                "-fx-text-fill: rgb(" + config.getInt("DigitalClock.Font.Color.Red") + ", " + config.getInt("DigitalClock.Font.Color.Green") + ", " + config.getInt("DigitalClock.Font.Color.Blue") + ");"
-        );
-
-        root.getChildren().add(digitalClockPane);
+        root.getChildren().add(new DigitalClock());
         scene = new Scene(root, screenSizeWidth, screenSizeHeight);
 
         Main.stage = stage;
@@ -99,10 +83,11 @@ public class Main extends Application
             config.addDefault("DigitalClock.Position.X", 60);
             config.addDefault("DigitalClock.Position.Y", 60);
             config.addDefault("DigitalClock.Font.Size", 76);
-            config.addDefault("DigitalClock.Font.Name", "Microsoft Yahei UI Light");
+            config.addDefault("DigitalClock.Font.Name", "Exo Thin");
             config.addDefault("DigitalClock.Font.Color.Red", 255);
             config.addDefault("DigitalClock.Font.Color.Green", 255);
             config.addDefault("DigitalClock.Font.Color.Blue", 255);
+            config.addDefault("DigitalClock.Time.UseTwentyFourHours", true);
 
             saveConfig();
             return false;
@@ -135,7 +120,7 @@ public class Main extends Application
     public String getDataFolder()
     {
         String path = System.getProperty("user.dir");
-        Debug("Got data folder: " + path);
+        Debug("[辅助方法] Got data folder: " + path);
         return path;
     }
 }
