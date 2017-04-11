@@ -5,3 +5,9 @@ zh_CN:
       Text:
         TwentyFourHours: '%s:%s'
         AMPM: '%s:%s %s'
+en_US:
+  DigitalClock:
+    Clock:
+      Text:
+        TwentyFourHours: '%s:%s'
+        AMPM: '%s:%s %s'

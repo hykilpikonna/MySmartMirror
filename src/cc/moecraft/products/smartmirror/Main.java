@@ -131,7 +131,9 @@ public class Main extends Application
             lang.addDefault("Generated", true);
             //时钟
             lang.addDefault("zh_CN.DigitalClock.Clock.Text.TwentyFourHours", "%s:%s");
+            lang.addDefault("en_US.DigitalClock.Clock.Text.TwentyFourHours", "%s:%s");
             lang.addDefault("zh_CN.DigitalClock.Clock.Text.AMPM", "%s:%s %s");
+            lang.addDefault("en_US.DigitalClock.Clock.Text.AMPM", "%s:%s %s");
 
             saveLang();
             return false;
