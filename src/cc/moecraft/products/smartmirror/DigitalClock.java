@@ -13,6 +13,7 @@ import java.util.Calendar;
 
 import static cc.moecraft.products.smartmirror.Main.config;
 import static cc.moecraft.products.smartmirror.Main.exoThinFontCSS;
+import static cc.moecraft.products.smartmirror.Main.getLang;
 import static cc.moecraft.products.smartmirror.logger.Debug;
 
 public class DigitalClock extends Text
@@ -24,13 +25,13 @@ public class DigitalClock extends Text
     private void bindToTime()
     {
         Calendar time = Calendar.getInstance();
-        Debug("[数字表][配置] DigitalClock.Time.UseTwentyFourHours = " + config.getBoolean("DigitalClock.Time.UseTwentyFourHours"));
+        Debug("[数字表][配置] DigitalClock.Clock.Time.UseTwentyFourHours = " + config.getBoolean("DigitalClock.Clock.Time.UseTwentyFourHours"));
         EventHandler e = (EventHandler<ActionEvent>) actionEvent -> {
-            if (config.getBoolean("DigitalClock.Time.UseTwentyFourHours"))
+            if (config.getBoolean("DigitalClock.Clock.Time.UseTwentyFourHours"))
             {
                 String hourString = StringUtils.pad(2, '0', time.get(Calendar.HOUR_OF_DAY) + "");
                 String minuteString = StringUtils.pad(2, '0', time.get(Calendar.MINUTE) + "");
-                setText(hourString + ":" + minuteString);
+                setText(String.format(getLang("DigitalClock.Clock.Text.TwentyFourHours"), hourString, minuteString));
             }
             else
             {
@@ -38,11 +39,11 @@ public class DigitalClock extends Text
                 String minuteString = StringUtils.pad(2, '0', time.get(Calendar.MINUTE) + "");
                 if (time.get(Calendar.AM_PM) == 1)
                 {
-                    setText(hourString + ":" + minuteString + " PM");
+                    setText(String.format(getLang("DigitalClock.Clock.Text.AMPM"), hourString, minuteString, "PM"));
                 }
                 else
                 {
-                    setText(hourString + ":" + minuteString + "AM");
+                    setText(String.format(getLang("DigitalClock.Clock.Text.AMPM"), hourString, minuteString, "AM"));
                 }
             }
         };
@@ -53,9 +54,9 @@ public class DigitalClock extends Text
         timeline.play();
 
         setStyle(
-                " -fx-font: "      + config.getInt("DigitalClock.Font.Size") + "pt \"" + config.getString("DigitalClock.Font.Name") + "\";"
+                " -fx-font: "      + config.getInt("DigitalClock.Clock.Font.Size") + "pt \"" + config.getString("DigitalClock.Clock.Font.Name") + "\";"
         );
-        setFill(Paint.valueOf("rgb(" + config.getInt("DigitalClock.Font.Color.Red") + ", " + config.getInt("DigitalClock.Font.Color.Green") + ", " + config.getInt("DigitalClock.Font.Color.Blue") + ");"));
+        setFill(Paint.valueOf("rgb(" + config.getInt("DigitalClock.Clock.Font.Color.Red") + ", " + config.getInt("DigitalClock.Clock.Font.Color.Green") + ", " + config.getInt("DigitalClock.Clock.Font.Color.Blue") + ");"));
 
         Debug("[数字表][坐标] X = " + config.getInt("DigitalClock.Position.X") + "; Y = " + config.getInt("DigitalClock.Position.Y"));
         setTextAlignment(TextAlignment.JUSTIFY);

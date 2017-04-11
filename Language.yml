@@ -1,0 +1,7 @@
+Generated: true
+zh_CN:
+  DigitalClock:
+    Clock:
+      Text:
+        TwentyFourHours: '%s:%s'
+        AMPM: '%s:%s %s'

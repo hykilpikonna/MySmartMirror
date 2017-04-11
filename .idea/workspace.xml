@@ -5,10 +5,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MySmartMirror/cc/moecraft/products/smartmirror/DigitalClock.class" afterPath="$PROJECT_DIR$/out/production/MySmartMirror/cc/moecraft/products/smartmirror/DigitalClock.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MySmartMirror/cc/moecraft/products/smartmirror/Main.class" afterPath="$PROJECT_DIR$/out/production/MySmartMirror/cc/moecraft/products/smartmirror/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/MySmartMirror/cc/moecraft/products/smartmirror/SmartMirror.fxml" afterPath="$PROJECT_DIR$/out/production/MySmartMirror/cc/moecraft/products/smartmirror/SmartMirror.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cc/moecraft/products/smartmirror/DigitalClock.java" afterPath="$PROJECT_DIR$/src/cc/moecraft/products/smartmirror/DigitalClock.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cc/moecraft/products/smartmirror/Main.java" afterPath="$PROJECT_DIR$/src/cc/moecraft/products/smartmirror/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/cc/moecraft/products/smartmirror/SmartMirror.fxml" afterPath="$PROJECT_DIR$/src/cc/moecraft/products/smartmirror/SmartMirror.fxml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -70,10 +68,12 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/cc/moecraft/products/smartmirror/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="88" column="60" lean-forward="true" selection-start-line="88" selection-start-column="60" selection-end-line="88" selection-end-column="60" />
+            <state relative-caret-position="95">
+              <caret line="36" column="14" lean-forward="false" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#4886#4887#0" expanded="true" />
+                <element signature="e#4971#4972#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -82,12 +82,12 @@
       <file leaf-file-name="DigitalClock.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/cc/moecraft/products/smartmirror/DigitalClock.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="354">
-              <caret line="60" column="8" lean-forward="false" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
+            <state relative-caret-position="181">
+              <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#611#612#0" expanded="true" />
-                <element signature="e#639#640#0" expanded="true" />
+                <element signature="e#672#673#0" expanded="true" />
+                <element signature="e#700#701#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -161,35 +161,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="YamlConfiguration.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cc/moecraft/products/smartmirror/configuration/file/YamlConfiguration.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="189" column="0" lean-forward="false" selection-start-line="189" selection-start-column="0" selection-end-line="189" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NumberConvertions.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/cc/moecraft/products/smartmirror/Essentials/NumberConvertions.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="5" column="5" lean-forward="false" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
-              <folding>
-                <element signature="e#496#497#0" expanded="false" />
-                <element signature="e#536#537#0" expanded="false" />
-                <element signature="e#587#588#0" expanded="false" />
-                <element signature="e#619#620#0" expanded="false" />
-                <element signature="e#3085#3086#0" expanded="false" />
-                <element signature="e#3139#3140#0" expanded="false" />
-                <element signature="e#3190#3191#0" expanded="false" />
-                <element signature="e#3243#3244#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -198,6 +169,11 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Font.</find>
+    </findStrings>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -637,6 +613,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="" />
@@ -801,6 +780,8 @@
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#4886#4887#0" expanded="true" />
+            <element signature="e#4971#4972#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1070,22 +1051,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cc/moecraft/products/smartmirror/DigitalClock.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="60" column="8" lean-forward="false" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
+        <state relative-caret-position="181">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#611#612#0" expanded="true" />
-            <element signature="e#639#640#0" expanded="true" />
+            <element signature="e#672#673#0" expanded="true" />
+            <element signature="e#700#701#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/cc/moecraft/products/smartmirror/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="88" column="60" lean-forward="true" selection-start-line="88" selection-start-column="60" selection-end-line="88" selection-end-column="60" />
+        <state relative-caret-position="95">
+          <caret line="36" column="14" lean-forward="false" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#4886#4887#0" expanded="true" />
+            <element signature="e#4971#4972#0" expanded="true" />
           </folding>
         </state>
       </provider>

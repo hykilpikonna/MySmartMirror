@@ -1,0 +1,26 @@
+Generated: true
+General:
+  Language: zh_CN
+DigitalClock:
+  Position:
+    X: 40
+    Y: 120
+  Clock:
+    Font:
+      Size: 76
+      Name: Exo Thin
+      Color:
+        Red: 255
+        Green: 255
+        Blue: 255
+    Time:
+      UseTwentyFourHours: true
+  Date:
+    Show: true
+    Font:
+      Size: 40
+      Name: Exo Thin
+      Color:
+        Red: 255
+        Green: 255
+        Blue: 255
