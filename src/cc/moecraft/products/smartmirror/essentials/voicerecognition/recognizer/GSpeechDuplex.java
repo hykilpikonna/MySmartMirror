@@ -10,7 +10,6 @@ import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import net.sourceforge.javaflacencoder.*;
 
 import javax.net.ssl.HttpsURLConnection;
 import javax.sound.sampled.AudioFormat;
@@ -20,6 +19,7 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.TargetDataLine;
 
 import cc.moecraft.products.smartmirror.essentials.voicerecognition.util.StringUtil;
+import javaFlacEncoder.FLACFileWriter;
 
 //TODO Add a better logging system to GSpeechDuplex
 //TODO Find out why the V2 version of duplex no longer works.
@@ -184,7 +184,7 @@ public class GSpeechDuplex{
 	/**
 	 * This code opens a new Thread that connects to the downstream URL. Due to threading,
 	 * the best way to handle this is through the use of listeners.
-	 * @param The URL you want to connect to.
+	 * @param urlStr The URL you want to connect to.
 	 */
 	private Thread downChannel(String urlStr) {
 		final String url = urlStr;

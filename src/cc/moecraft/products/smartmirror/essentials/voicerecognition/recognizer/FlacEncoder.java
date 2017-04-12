@@ -1,8 +1,8 @@
 package cc.moecraft.products.smartmirror.essentials.voicerecognition.recognizer;
 
-import net.sourceforge.javaflacencoder.FLACEncoder;
-import net.sourceforge.javaflacencoder.FLACFileOutputStream;
-import net.sourceforge.javaflacencoder.StreamConfiguration;
+import javaFlacEncoder.FLACEncoder;
+import javaFlacEncoder.FLACFileOutputStream;
+import javaFlacEncoder.StreamConfiguration;
 
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;

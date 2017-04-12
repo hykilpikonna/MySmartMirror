@@ -1,7 +1,9 @@
 package cc.moecraft.products.smartmirror.essentials.voicerecognition.microphone;
 
+import cc.moecraft.products.smartmirror.essentials.voicerecognition.util.Complex;
+import cc.moecraft.products.smartmirror.essentials.voicerecognition.util.FFT;
+
 import javax.sound.sampled.AudioFileFormat;
-import com.darkprograms.speech.util.*;
 
 /********************************************************************************************
  * Microphone Analyzer class, detects pitch and volume while extending the microphone class.
@@ -154,7 +156,7 @@ public class MicrophoneAnalyzer extends Microphone {
 	 * Applies a Hanning Window to the data set.
 	 * Hanning Windows are used to increase the accuracy of the FFT.
 	 * One should always apply a window to a dataset before applying an FFT
-	 * @param The data you want to apply the window to
+	 * @param data The data you want to apply the window to
 	 * @return The windowed data set
 	 */
 	private double[] applyHanningWindow(double[] data){
@@ -165,9 +167,9 @@ public class MicrophoneAnalyzer extends Microphone {
 	 * Applies a Hanning Window to the data set.
 	 * Hanning Windows are used to increase the accuracy of the FFT.
 	 * One should always apply a window to a dataset before applying an FFT
-	 * @param The data you want to apply the window to
-	 * @param The starting index you want to apply a window from
-	 * @param The size of the window
+	 * @param signal_in The data you want to apply the window to
+	 * @param pos The starting index you want to apply a window from
+	 * @param size The size of the window
 	 * @return The windowed data set
 	 */
 	private double[] applyHanningWindow(double[] signal_in, int pos, int size){
@@ -215,7 +217,7 @@ public class MicrophoneAnalyzer extends Microphone {
 
 	/**
 	 * Removes useless data from transform since sound doesn't use complex numbers.
-	 * @param The data you want to remove the complex transforms from
+	 * @param c The data you want to remove the complex transforms from
 	 * @return The cleaned data
 	 */
 	private Complex[] removeNegativeFrequencies(Complex[] c){
@@ -240,7 +242,7 @@ public class MicrophoneAnalyzer extends Microphone {
 
 	/**
 	 * Calculates index of the maximum magnitude in a complex array.
-	 * @param The Complex[] you want to get max magnitude from.
+	 * @param input The Complex[] you want to get max magnitude from.
 	 * @return The index of the max magnitude
 	 */
 	private int findMaxMagnitude(Complex[] input){

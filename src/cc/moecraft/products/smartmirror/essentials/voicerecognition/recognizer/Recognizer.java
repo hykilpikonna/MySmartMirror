@@ -1,12 +1,13 @@
 package cc.moecraft.products.smartmirror.essentials.voicerecognition.recognizer;
 
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
 import java.util.*;
 import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.charset.Charset;
-
-import org.json.*;
 
 /***************************************************************
  * Class that submits FLAC audio and retrieves recognized text
@@ -365,13 +366,14 @@ public class Recognizer {
     private void parseResponse(String[] rawResponse, GoogleResponse googleResponse) {
 
         for(String s : rawResponse) {
-            JSONObject jsonResponse = new JSONObject(s);
+            JSONObject jsonResponse = new JSONObject();
+            jsonResponse.optString(s);
             JSONArray jsonResultArray = jsonResponse.getJSONArray("result");
-            for(int i = 0; i < jsonResultArray.length(); i++) {
+            for(int i = 0; i < jsonResultArray.size(); i++) {
                 JSONObject jsonAlternativeObject = jsonResultArray.getJSONObject(i);
                 JSONArray jsonAlternativeArray = jsonAlternativeObject.getJSONArray("alternative");
                 double prevConfidence = 0;
-                for(int j = 0; j < jsonAlternativeArray.length(); j++) {
+                for(int j = 0; j < jsonAlternativeArray.size(); j++) {
                     JSONObject jsonTranscriptObject = jsonAlternativeArray.getJSONObject(j);
                     String transcript = jsonTranscriptObject.optString("transcript", "");
                     double confidence = jsonTranscriptObject.optDouble("confidence", 0.0);

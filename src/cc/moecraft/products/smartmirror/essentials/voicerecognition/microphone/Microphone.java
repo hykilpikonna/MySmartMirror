@@ -10,7 +10,8 @@ import java.io.File;
  *
  * @author Luke Kuza, Aaron Gokaslan
  ***************************************************************************/
-public class Microphone implements Closeable{
+public class Microphone implements Closeable
+{
 
     /**
      * TargetDataLine variable to receive data from microphone

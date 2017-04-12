@@ -1,6 +1,6 @@
 Generated: true
 General:
-  Language: zh_CN
+  Language: en_US
 DClock:
   Position:
     X: 40
@@ -30,3 +30,16 @@ DClock:
       Offset:
         X: 0
         Y: 80
+DCalendar:
+  Font:
+    Size: 30
+    Name: Exo Thin
+    Layout: Left
+    Color:
+      Red: 255
+      Green: 255
+      Blue: 255
+  Position:
+    Offset:
+      X: 0
+      Y: 120

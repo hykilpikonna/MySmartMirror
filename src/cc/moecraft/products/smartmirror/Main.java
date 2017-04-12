@@ -1,6 +1,7 @@
 package cc.moecraft.products.smartmirror;
 
 import cc.moecraft.products.smartmirror.configuration.file.YamlConfiguration;
+import cc.moecraft.products.smartmirror.elements.digitalclock.DCalendar;
 import cc.moecraft.products.smartmirror.elements.digitalclock.DClock;
 import cc.moecraft.products.smartmirror.elements.digitalclock.DDate;
 import javafx.application.Application;
@@ -53,6 +54,7 @@ public class Main extends Application
         digitalClockPane.getStylesheets().add(exoThinFontCSS);
         digitalClockPane.getChildren().add(new DClock());
         digitalClockPane.getChildren().add(new DDate());
+        digitalClockPane.getChildren().add(new DCalendar());
 
         root.getChildren().add(digitalClockPane);
         scene = new Scene(root, screenSizeWidth, screenSizeHeight);
@@ -110,6 +112,15 @@ public class Main extends Application
             config.addDefault("DClock.DDate.Font.Color.Blue", 255);
             config.addDefault("DClock.DDate.Position.Offset.X", 0);
             config.addDefault("DClock.DDate.Position.Offset.Y", 80);
+            //日期下面的日历
+            config.addDefault("DCalendar.Font.Size", 30);
+            config.addDefault("DCalendar.Font.Name", "Exo Thin");
+            config.addDefault("DCalendar.Font.Layout", "Left");
+            config.addDefault("DCalendar.Font.Color.Red", 255);
+            config.addDefault("DCalendar.Font.Color.Green", 255);
+            config.addDefault("DCalendar.Font.Color.Blue", 255);
+            config.addDefault("DCalendar.Position.Offset.X", 0);
+            config.addDefault("DCalendar.Position.Offset.Y", 120);
 
             saveConfig();
             return false;
