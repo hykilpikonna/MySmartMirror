@@ -1,7 +1,7 @@
 Generated: true
 General:
   Language: zh_CN
-DigitalClock:
+DClock:
   Position:
     X: 40
     Y: 120
@@ -9,18 +9,24 @@ DigitalClock:
     Font:
       Size: 76
       Name: Exo Thin
+      Layout: Left
       Color:
         Red: 255
         Green: 255
         Blue: 255
     Time:
       UseTwentyFourHours: true
-  Date:
+  DDate:
     Show: true
     Font:
       Size: 40
       Name: Exo Thin
+      Layout: Left
       Color:
         Red: 255
         Green: 255
         Blue: 255
+    Position:
+      Offset:
+        X: 0
+        Y: 80

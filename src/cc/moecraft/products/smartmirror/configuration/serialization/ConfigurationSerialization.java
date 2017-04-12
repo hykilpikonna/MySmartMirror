@@ -1,6 +1,6 @@
 package cc.moecraft.products.smartmirror.configuration.serialization;
 
-import cc.moecraft.products.smartmirror.Essentials.Validate;
+import cc.moecraft.products.smartmirror.essentials.Validate;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;

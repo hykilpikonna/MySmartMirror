@@ -1,13 +1,65 @@
 Generated: true
 zh_CN:
-  DigitalClock:
+  DClock:
     Clock:
       Text:
         TwentyFourHours: '%s:%s'
         AMPM: '%s:%s %s'
+    DDate:
+      Text:
+        Format: |-
+          %YEAR%年 %MONTH%月 %DATE%日
+          星期%DIW%
+        Month:
+          '1': 一
+          '2': 二
+          '3': 三
+          '4': 四
+          '5': 五
+          '6': 六
+          '7': 七
+          '8': 八
+          '9': 九
+          '10': 十
+          '11': 十一
+          '12': 十二
+        DayInWeek:
+          '1': 一
+          '2': 二
+          '3': 三
+          '4': 四
+          '5': 五
+          '6': 六
+          '7': 日
 en_US:
-  DigitalClock:
+  DClock:
     Clock:
       Text:
         TwentyFourHours: '%s:%s'
         AMPM: '%s:%s %s'
+    DDate:
+      Text:
+        Format: |-
+          %DATE% %MONTH% %YEAR%
+          %DIW%
+        Month:
+          '1': January
+          '2': February
+          '3': March
+          '4': April
+          '5': May
+          '6': June
+          '7': July
+          '8': August
+          '9': September
+          '10': October
+          '11': November
+          '12': December
+        DayInWeek:
+          '1': Monday
+          '2': Tuesday
+          '3': Wednesday
+          '4': Thursday
+          '5': Friday
+          '6': Saturday
+          '7': Sunday

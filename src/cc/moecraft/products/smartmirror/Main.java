@@ -1,6 +1,8 @@
 package cc.moecraft.products.smartmirror;
 
 import cc.moecraft.products.smartmirror.configuration.file.YamlConfiguration;
+import cc.moecraft.products.smartmirror.elements.digitalclock.DClock;
+import cc.moecraft.products.smartmirror.elements.digitalclock.DDate;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -49,7 +51,8 @@ public class Main extends Application
 
         Pane digitalClockPane = new Pane();
         digitalClockPane.getStylesheets().add(exoThinFontCSS);
-        digitalClockPane.getChildren().add(new DigitalClock());
+        digitalClockPane.getChildren().add(new DClock());
+        digitalClockPane.getChildren().add(new DDate());
 
         root.getChildren().add(digitalClockPane);
         scene = new Scene(root, screenSizeWidth, screenSizeHeight);
@@ -86,23 +89,27 @@ public class Main extends Application
             log("[配置] 检测到配置文件是新的, 正在储存默认配置");
             config.addDefault("Generated", true);
             //通用设置
-            config.addDefault("General.Language", "zh_CN");
+            config.addDefault("General.Language", "en_US");
             //时钟
-            config.addDefault("DigitalClock.Position.X", 40);
-            config.addDefault("DigitalClock.Position.Y", 120);
-            config.addDefault("DigitalClock.Clock.Font.Size", 76);
-            config.addDefault("DigitalClock.Clock.Font.Name", "Exo Thin");
-            config.addDefault("DigitalClock.Clock.Font.Color.Red", 255);
-            config.addDefault("DigitalClock.Clock.Font.Color.Green", 255);
-            config.addDefault("DigitalClock.Clock.Font.Color.Blue", 255);
-            config.addDefault("DigitalClock.Clock.Time.UseTwentyFourHours", true);
+            config.addDefault("DClock.Position.X", 40);
+            config.addDefault("DClock.Position.Y", 120);
+            config.addDefault("DClock.Clock.Font.Size", 76);
+            config.addDefault("DClock.Clock.Font.Name", "Exo Thin");
+            config.addDefault("DClock.Clock.Font.Layout", "Left");
+            config.addDefault("DClock.Clock.Font.Color.Red", 255);
+            config.addDefault("DClock.Clock.Font.Color.Green", 255);
+            config.addDefault("DClock.Clock.Font.Color.Blue", 255);
+            config.addDefault("DClock.Clock.Time.UseTwentyFourHours", true);
             //时钟下面的日期
-            config.addDefault("DigitalClock.Date.Show", true);
-            config.addDefault("DigitalClock.Date.Font.Size", 40);
-            config.addDefault("DigitalClock.Date.Font.Name", "Exo Thin");
-            config.addDefault("DigitalClock.Date.Font.Color.Red", 255);
-            config.addDefault("DigitalClock.Date.Font.Color.Green", 255);
-            config.addDefault("DigitalClock.Date.Font.Color.Blue", 255);
+            config.addDefault("DClock.DDate.Show", true);
+            config.addDefault("DClock.DDate.Font.Size", 40);
+            config.addDefault("DClock.DDate.Font.Name", "Exo Thin");
+            config.addDefault("DClock.DDate.Font.Layout", "Left");
+            config.addDefault("DClock.DDate.Font.Color.Red", 255);
+            config.addDefault("DClock.DDate.Font.Color.Green", 255);
+            config.addDefault("DClock.DDate.Font.Color.Blue", 255);
+            config.addDefault("DClock.DDate.Position.Offset.X", 0);
+            config.addDefault("DClock.DDate.Position.Offset.Y", 80);
 
             saveConfig();
             return false;
@@ -130,10 +137,52 @@ public class Main extends Application
             log("[语言] 检测到语言文件是新的, 正在储存默认配置");
             lang.addDefault("Generated", true);
             //时钟
-            lang.addDefault("zh_CN.DigitalClock.Clock.Text.TwentyFourHours", "%s:%s");
-            lang.addDefault("en_US.DigitalClock.Clock.Text.TwentyFourHours", "%s:%s");
-            lang.addDefault("zh_CN.DigitalClock.Clock.Text.AMPM", "%s:%s %s");
-            lang.addDefault("en_US.DigitalClock.Clock.Text.AMPM", "%s:%s %s");
+            lang.addDefault("zh_CN.DClock.Clock.Text.TwentyFourHours", "%s:%s");
+            lang.addDefault("en_US.DClock.Clock.Text.TwentyFourHours", "%s:%s");
+            lang.addDefault("zh_CN.DClock.Clock.Text.AMPM", "%s:%s %s");
+            lang.addDefault("en_US.DClock.Clock.Text.AMPM", "%s:%s %s");
+            //日期
+            lang.addDefault("zh_CN.DClock.DDate.Text.Format", "%YEAR%年 %MONTH%月 %DATE%日\n星期%DIW%");
+            lang.addDefault("en_US.DClock.DDate.Text.Format", "%DATE% %MONTH% %YEAR%\n%DIW%");
+            lang.addDefault("zh_CN.DClock.DDate.Text.Month.1", "一");
+            lang.addDefault("zh_CN.DClock.DDate.Text.Month.2", "二");
+            lang.addDefault("zh_CN.DClock.DDate.Text.Month.3", "三");
+            lang.addDefault("zh_CN.DClock.DDate.Text.Month.4", "四");
+            lang.addDefault("zh_CN.DClock.DDate.Text.Month.5", "五");
+            lang.addDefault("zh_CN.DClock.DDate.Text.Month.6", "六");
+            lang.addDefault("zh_CN.DClock.DDate.Text.Month.7", "七");
+            lang.addDefault("zh_CN.DClock.DDate.Text.Month.8", "八");
+            lang.addDefault("zh_CN.DClock.DDate.Text.Month.9", "九");
+            lang.addDefault("zh_CN.DClock.DDate.Text.Month.10", "十");
+            lang.addDefault("zh_CN.DClock.DDate.Text.Month.11", "十一");
+            lang.addDefault("zh_CN.DClock.DDate.Text.Month.12", "十二");
+            lang.addDefault("en_US.DClock.DDate.Text.Month.1", "January");
+            lang.addDefault("en_US.DClock.DDate.Text.Month.2", "February");
+            lang.addDefault("en_US.DClock.DDate.Text.Month.3", "March");
+            lang.addDefault("en_US.DClock.DDate.Text.Month.4", "April");
+            lang.addDefault("en_US.DClock.DDate.Text.Month.5", "May");
+            lang.addDefault("en_US.DClock.DDate.Text.Month.6", "June");
+            lang.addDefault("en_US.DClock.DDate.Text.Month.7", "July");
+            lang.addDefault("en_US.DClock.DDate.Text.Month.8", "August");
+            lang.addDefault("en_US.DClock.DDate.Text.Month.9", "September");
+            lang.addDefault("en_US.DClock.DDate.Text.Month.10", "October");
+            lang.addDefault("en_US.DClock.DDate.Text.Month.11", "November");
+            lang.addDefault("en_US.DClock.DDate.Text.Month.12", "December");
+            lang.addDefault("zh_CN.DClock.DDate.Text.DayInWeek.1", "一");
+            lang.addDefault("zh_CN.DClock.DDate.Text.DayInWeek.2", "二");
+            lang.addDefault("zh_CN.DClock.DDate.Text.DayInWeek.3", "三");
+            lang.addDefault("zh_CN.DClock.DDate.Text.DayInWeek.4", "四");
+            lang.addDefault("zh_CN.DClock.DDate.Text.DayInWeek.5", "五");
+            lang.addDefault("zh_CN.DClock.DDate.Text.DayInWeek.6", "六");
+            lang.addDefault("zh_CN.DClock.DDate.Text.DayInWeek.7", "日");
+            lang.addDefault("en_US.DClock.DDate.Text.DayInWeek.1", "Monday");
+            lang.addDefault("en_US.DClock.DDate.Text.DayInWeek.2", "Tuesday");
+            lang.addDefault("en_US.DClock.DDate.Text.DayInWeek.3", "Wednesday");
+            lang.addDefault("en_US.DClock.DDate.Text.DayInWeek.4", "Thursday");
+            lang.addDefault("en_US.DClock.DDate.Text.DayInWeek.5", "Friday");
+            lang.addDefault("en_US.DClock.DDate.Text.DayInWeek.6", "Saturday");
+            lang.addDefault("en_US.DClock.DDate.Text.DayInWeek.7", "Sunday");
+            //TODO: 特殊节日
 
             saveLang();
             return false;

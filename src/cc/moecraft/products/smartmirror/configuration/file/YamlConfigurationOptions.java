@@ -1,6 +1,6 @@
 package cc.moecraft.products.smartmirror.configuration.file;
 
-import cc.moecraft.products.smartmirror.Essentials.Validate;
+import cc.moecraft.products.smartmirror.essentials.Validate;
 
 public class YamlConfigurationOptions extends FileConfigurationOptions {
     private int indent = 2;

@@ -1,6 +1,6 @@
 package cc.moecraft.products.smartmirror.configuration.file;
 
-import cc.moecraft.products.smartmirror.Essentials.Validate;
+import cc.moecraft.products.smartmirror.essentials.Validate;
 import cc.moecraft.products.smartmirror.configuration.Configuration;
 import cc.moecraft.products.smartmirror.configuration.InvalidConfigurationException;
 import cc.moecraft.products.smartmirror.configuration.MemoryConfiguration;

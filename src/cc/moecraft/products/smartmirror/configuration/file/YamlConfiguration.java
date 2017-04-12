@@ -7,7 +7,7 @@ import java.io.InputStream;
 import java.io.Reader;
 import java.util.Map;
 
-import cc.moecraft.products.smartmirror.Essentials.Validate;
+import cc.moecraft.products.smartmirror.essentials.Validate;
 import cc.moecraft.products.smartmirror.configuration.Configuration;
 import cc.moecraft.products.smartmirror.configuration.ConfigurationSection;
 import cc.moecraft.products.smartmirror.configuration.InvalidConfigurationException;

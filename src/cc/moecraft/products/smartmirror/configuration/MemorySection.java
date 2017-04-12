@@ -1,6 +1,6 @@
 package cc.moecraft.products.smartmirror.configuration;
 
-import cc.moecraft.products.smartmirror.Essentials.Validate;
+import cc.moecraft.products.smartmirror.essentials.Validate;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -9,9 +9,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import static cc.moecraft.products.smartmirror.Essentials.NumberConvertions.toDouble;
-import static cc.moecraft.products.smartmirror.Essentials.NumberConvertions.toInt;
-import static cc.moecraft.products.smartmirror.Essentials.NumberConvertions.toLong;
+import static cc.moecraft.products.smartmirror.essentials.NumberConvertions.toDouble;
+import static cc.moecraft.products.smartmirror.essentials.NumberConvertions.toInt;
+import static cc.moecraft.products.smartmirror.essentials.NumberConvertions.toLong;
 
 /**
  * A type of {@link ConfigurationSection} that is stored in memory.
