@@ -1,4 +1,4 @@
-package cc.moecraft.products.smartmirror.Essentials;
+package cc.moecraft.products.smartmirror.essentials;
 
 public class NumberConvertions
 {

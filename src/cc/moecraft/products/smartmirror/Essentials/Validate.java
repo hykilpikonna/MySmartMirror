@@ -1,4 +1,4 @@
-package cc.moecraft.products.smartmirror.Essentials;
+package cc.moecraft.products.smartmirror.essentials;
 
 /**
  * Created by Kilpikonna on 2017/4/8 0008.
