@@ -38,6 +38,7 @@ public class Main extends Application
     public static Stage stage;
     public static Scene scene;
     public static String exoThinFontCSS;
+    public static String exoLightFontCSS;
     @Override
     public void start(Stage stage) throws Exception
     {
@@ -47,6 +48,7 @@ public class Main extends Application
         checkLang();
 
         exoThinFontCSS = Main.class.getResource("css/exothin.css").toExternalForm();
+        exoLightFontCSS = Main.class.getResource("css/exolight.css").toExternalForm();
 
         root = FXMLLoader.load(getClass().getResource("SmartMirror.fxml"));
         root.setStyle("-fx-background-color: #000000");
@@ -140,9 +142,9 @@ public class Main extends Application
             config.addDefault("DClock.DDate.Font.Color.Blue", 255);
             //日期下面的日历
             config.addDefault("DCalendar.Position.Offset.X", 0);
-            config.addDefault("DCalendar.Position.Offset.Y", 120);
-            config.addDefault("DCalendar.Font.Size", 15);
-            config.addDefault("DCalendar.Font.Name", "Exo Thin");
+            config.addDefault("DCalendar.Position.Offset.Y", 180);
+            config.addDefault("DCalendar.Font.Size", 18);
+            config.addDefault("DCalendar.Font.Name", "Exo Light");
             config.addDefault("DCalendar.Headers.Font.Color.Red", 255);
             config.addDefault("DCalendar.Headers.Font.Color.Green", 255);
             config.addDefault("DCalendar.Headers.Font.Color.Blue", 255);

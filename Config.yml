@@ -36,8 +36,8 @@ DCalendar:
       X: 0
       Y: 180
   Font:
-    Size: 15
-    Name: Exo Thin
+    Size: 18
+    Name: Exo Light
   Headers:
     Font:
       Color:

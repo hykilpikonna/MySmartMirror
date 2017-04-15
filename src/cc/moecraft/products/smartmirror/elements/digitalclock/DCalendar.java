@@ -20,6 +20,7 @@ import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 
 import static cc.moecraft.products.smartmirror.Main.config;
+import static cc.moecraft.products.smartmirror.Main.exoLightFontCSS;
 import static cc.moecraft.products.smartmirror.Main.getLang;
 import static cc.moecraft.products.smartmirror.logger.Debug;
 
@@ -77,9 +78,8 @@ public class DCalendar
         int dayOfWeekOfFirst = first.get(weekFields.dayOfWeek()) ;
 
         // column headers:
-        for (int dayOfWeek = 1 ; dayOfWeek <= 7 ; dayOfWeek++) {
-            LocalDate date = first.minusDays(dayOfWeekOfFirst - dayOfWeek);
-            DayOfWeek day = date.getDayOfWeek() ;
+        for (int dayOfWeek = 1 ; dayOfWeek < 8 ; dayOfWeek++)
+        {
             Text t = new Text(getLang("DCalendar.Text.DayInWeek." + dayOfWeek));
             t.setFill(Paint.valueOf("rgb(" +
                     config.getInt("DCalendar.Headers.Font.Color.Red") + ", " +
@@ -115,6 +115,7 @@ public class DCalendar
     }
 
     public Node getView() {
+        view.getStylesheets().add(exoLightFontCSS);
         BorderPane output = view;
         view.setStyle(
                         " -fx-font: "      + config.getInt("DCalendar.Font.Size") + "pt \"" + config.getString("DCalendar.Font.Name") + "\";"
