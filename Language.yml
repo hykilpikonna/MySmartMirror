@@ -31,6 +31,17 @@ zh_CN:
           '5': 五
           '6': 六
           '7': 日
+  DCalendar:
+    Text:
+      Format: 周%DIW%
+      DayInWeek:
+        '1': 日
+        '2': 一
+        '3': 二
+        '4': 三
+        '5': 四
+        '6': 五
+        '7': 六
 en_US:
   DClock:
     Clock:
@@ -63,3 +74,14 @@ en_US:
           '5': Friday
           '6': Saturday
           '7': Sunday
+  DCalendar:
+    Text:
+      Format: '%DIW%'
+      DayInWeek:
+        '1': Sun
+        '2': Mon
+        '3': Tue
+        '4': Wed
+        '5': Thu
+        '6': Fri
+        '7': Sat

@@ -7,11 +7,13 @@ import cc.moecraft.products.smartmirror.elements.digitalclock.DDate;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.ListCell;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Locale;
 
 import static cc.moecraft.products.smartmirror.logger.Debug;
 import static cc.moecraft.products.smartmirror.logger.log;
@@ -37,7 +39,6 @@ public class Main extends Application
     public static Scene scene;
     public static String exoThinFontCSS;
     @Override
-    //TODO: 日期
     public void start(Stage stage) throws Exception
     {
         instance = this;
@@ -54,7 +55,24 @@ public class Main extends Application
         digitalClockPane.getStylesheets().add(exoThinFontCSS);
         digitalClockPane.getChildren().add(new DClock());
         digitalClockPane.getChildren().add(new DDate());
-        digitalClockPane.getChildren().add(new DCalendar());
+
+        //DCalendar
+        DCalendar dCalendar = new DCalendar() ;
+
+        /*ComboBox<Locale> localeCombo = new ComboBox<>();
+        localeCombo.getItems().addAll(Locale.getAvailableLocales());
+        localeCombo.setValue(Locale.getDefault());
+
+        localeCombo.setCellFactory(lv -> new LocaleCell());
+        localeCombo.setButtonCell(new LocaleCell());
+
+        dCalendar.localeProperty().bind(localeCombo.valueProperty());
+
+        BorderPane.setAlignment(localeCombo, Pos.CENTER);
+        BorderPane.setMargin(localeCombo, new Insets(10));*/
+        //End
+
+        digitalClockPane.getChildren().add(dCalendar.getView());
 
         root.getChildren().add(digitalClockPane);
         scene = new Scene(root, screenSizeWidth, screenSizeHeight);
@@ -68,6 +86,14 @@ public class Main extends Application
         Main.stage.setFullScreenExitHint("");
 
         Main.stage.show();
+    }
+
+    public static class LocaleCell extends ListCell<Locale> {
+        @Override
+        public void updateItem(Locale locale, boolean empty) {
+            super.updateItem(locale, empty);
+            setText(locale == null ? null : locale.getDisplayName(locale));
+        }
     }
 
     public static YamlConfiguration config;
@@ -103,6 +129,8 @@ public class Main extends Application
             config.addDefault("DClock.Clock.Font.Color.Blue", 255);
             config.addDefault("DClock.Clock.Time.UseTwentyFourHours", true);
             //时钟下面的日期
+            config.addDefault("DClock.DDate.Position.Offset.X", 0);
+            config.addDefault("DClock.DDate.Position.Offset.Y", 80);
             config.addDefault("DClock.DDate.Show", true);
             config.addDefault("DClock.DDate.Font.Size", 40);
             config.addDefault("DClock.DDate.Font.Name", "Exo Thin");
@@ -110,17 +138,15 @@ public class Main extends Application
             config.addDefault("DClock.DDate.Font.Color.Red", 255);
             config.addDefault("DClock.DDate.Font.Color.Green", 255);
             config.addDefault("DClock.DDate.Font.Color.Blue", 255);
-            config.addDefault("DClock.DDate.Position.Offset.X", 0);
-            config.addDefault("DClock.DDate.Position.Offset.Y", 80);
             //日期下面的日历
-            config.addDefault("DCalendar.Font.Size", 30);
-            config.addDefault("DCalendar.Font.Name", "Exo Thin");
-            config.addDefault("DCalendar.Font.Layout", "Left");
-            config.addDefault("DCalendar.Font.Color.Red", 255);
-            config.addDefault("DCalendar.Font.Color.Green", 255);
-            config.addDefault("DCalendar.Font.Color.Blue", 255);
             config.addDefault("DCalendar.Position.Offset.X", 0);
             config.addDefault("DCalendar.Position.Offset.Y", 120);
+            config.addDefault("DCalendar.Font.Size", 15);
+            config.addDefault("DCalendar.Font.Name", "Exo Thin");
+            config.addDefault("DCalendar.Headers.Font.Color.Red", 255);
+            config.addDefault("DCalendar.Headers.Font.Color.Green", 255);
+            config.addDefault("DCalendar.Headers.Font.Color.Blue", 255);
+
 
             saveConfig();
             return false;
@@ -194,6 +220,23 @@ public class Main extends Application
             lang.addDefault("en_US.DClock.DDate.Text.DayInWeek.6", "Saturday");
             lang.addDefault("en_US.DClock.DDate.Text.DayInWeek.7", "Sunday");
             //TODO: 特殊节日
+            //日历
+            lang.addDefault("zh_CN.DCalendar.Text.Format", "周%DIW%");
+            lang.addDefault("en_US.DCalendar.Text.Format", "%DIW%");
+            lang.addDefault("zh_CN.DCalendar.Text.DayInWeek.1", "日");
+            lang.addDefault("zh_CN.DCalendar.Text.DayInWeek.2", "一");
+            lang.addDefault("zh_CN.DCalendar.Text.DayInWeek.3", "二");
+            lang.addDefault("zh_CN.DCalendar.Text.DayInWeek.4", "三");
+            lang.addDefault("zh_CN.DCalendar.Text.DayInWeek.5", "四");
+            lang.addDefault("zh_CN.DCalendar.Text.DayInWeek.6", "五");
+            lang.addDefault("zh_CN.DCalendar.Text.DayInWeek.7", "六");
+            lang.addDefault("en_US.DCalendar.Text.DayInWeek.1", "Sun");
+            lang.addDefault("en_US.DCalendar.Text.DayInWeek.2", "Mon");
+            lang.addDefault("en_US.DCalendar.Text.DayInWeek.3", "Tue");
+            lang.addDefault("en_US.DCalendar.Text.DayInWeek.4", "Wed");
+            lang.addDefault("en_US.DCalendar.Text.DayInWeek.5", "Thu");
+            lang.addDefault("en_US.DCalendar.Text.DayInWeek.6", "Fri");
+            lang.addDefault("en_US.DCalendar.Text.DayInWeek.7", "Sat");
 
             saveLang();
             return false;

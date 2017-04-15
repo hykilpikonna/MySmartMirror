@@ -17,6 +17,10 @@ DClock:
     Time:
       UseTwentyFourHours: true
   DDate:
+    Position:
+      Offset:
+        X: 0
+        Y: 80
     Show: true
     Font:
       Size: 40
@@ -26,20 +30,17 @@ DClock:
         Red: 255
         Green: 255
         Blue: 255
-    Position:
-      Offset:
-        X: 0
-        Y: 80
 DCalendar:
-  Font:
-    Size: 30
-    Name: Exo Thin
-    Layout: Left
-    Color:
-      Red: 255
-      Green: 255
-      Blue: 255
   Position:
     Offset:
       X: 0
-      Y: 120
+      Y: 180
+  Font:
+    Size: 15
+    Name: Exo Thin
+  Headers:
+    Font:
+      Color:
+        Red: 255
+        Green: 255
+        Blue: 255
