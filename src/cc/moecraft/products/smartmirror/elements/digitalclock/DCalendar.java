@@ -38,6 +38,7 @@ public class DCalendar
         view.getStyleClass().add("calendar");
         calendar = new GridPane();
         calendar.getStyleClass().add("calendar-grid");
+        calendar.setGridLinesVisible(true);
 
         this.month.addListener((obs, oldMonth, newMonth) ->
                 rebuildCalendar());
@@ -121,8 +122,12 @@ public class DCalendar
                         " -fx-font: "      + config.getInt("DCalendar.Font.Size") + "pt \"" + config.getString("DCalendar.Font.Name") + "\";"
         );
 
-        view.setLayoutX(config.getInt("DClock.Position.X") + config.getInt("DCalendar.Position.Offset.X"));
-        view.setLayoutY(config.getInt("DClock.Position.Y") + config.getInt("DCalendar.Position.Offset.Y"));
+        view.setLayoutX(config.getInt("DClock.Position.X") +
+                //config.getInt("DClock.DDate.Position.Offset.X") +
+                config.getInt("DCalendar.Position.Offset.X"));
+        view.setLayoutY(config.getInt("DClock.Position.Y") +
+                //config.getInt("DClock.DDate.Position.Offset.Y") +
+                config.getInt("DCalendar.Position.Offset.Y"));
         return view ;
     }
 

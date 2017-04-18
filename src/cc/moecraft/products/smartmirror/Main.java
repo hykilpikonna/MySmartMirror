@@ -6,8 +6,11 @@ import cc.moecraft.products.smartmirror.elements.digitalclock.DClock;
 import cc.moecraft.products.smartmirror.elements.digitalclock.DDate;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.ListCell;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -47,8 +50,8 @@ public class Main extends Application
         checkConfig();
         checkLang();
 
-        exoThinFontCSS = Main.class.getResource("css/exothin.css").toExternalForm();
-        exoLightFontCSS = Main.class.getResource("css/exolight.css").toExternalForm();
+        exoThinFontCSS = Main.class.getResource("css/exothin/exothin.css").toExternalForm();
+        exoLightFontCSS = Main.class.getResource("css/exolight/exolight.css").toExternalForm();
 
         root = FXMLLoader.load(getClass().getResource("SmartMirror.fxml"));
         root.setStyle("-fx-background-color: #000000");
@@ -58,25 +61,14 @@ public class Main extends Application
         digitalClockPane.getChildren().add(new DClock());
         digitalClockPane.getChildren().add(new DDate());
 
-        //DCalendar
-        DCalendar dCalendar = new DCalendar() ;
+        Pane dCalendar = new Pane();
+        dCalendar.getStylesheets().add(exoLightFontCSS);
+        dCalendar.getChildren().add((new DCalendar()).getView());
 
-        /*ComboBox<Locale> localeCombo = new ComboBox<>();
-        localeCombo.getItems().addAll(Locale.getAvailableLocales());
-        localeCombo.setValue(Locale.getDefault());
-
-        localeCombo.setCellFactory(lv -> new LocaleCell());
-        localeCombo.setButtonCell(new LocaleCell());
-
-        dCalendar.localeProperty().bind(localeCombo.valueProperty());
-
-        BorderPane.setAlignment(localeCombo, Pos.CENTER);
-        BorderPane.setMargin(localeCombo, new Insets(10));*/
-        //End
-
-        digitalClockPane.getChildren().add(dCalendar.getView());
+        //digitalClockPane.getChildren().add(dCalendar.getView());
 
         root.getChildren().add(digitalClockPane);
+        root.getChildren().add(dCalendar);
         scene = new Scene(root, screenSizeWidth, screenSizeHeight);
 
         Main.stage = stage;

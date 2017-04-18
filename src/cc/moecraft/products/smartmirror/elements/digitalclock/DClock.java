@@ -46,6 +46,7 @@ public class DClock extends Text
             }
         };
 
+
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0), e), new KeyFrame(Duration.seconds(1)));
         
         timeline.setCycleCount(Animation.INDEFINITE);
@@ -74,6 +75,5 @@ public class DClock extends Text
         }
         setLayoutX(config.getInt("DClock.Position.X"));
         setLayoutY(config.getInt("DClock.Position.Y"));
-
     }
 }
