@@ -18,6 +18,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 
 import static cc.moecraft.products.smartmirror.Main.config;
 import static cc.moecraft.products.smartmirror.Main.exoLightFontCSS;
@@ -99,19 +100,27 @@ public class DCalendar
         PseudoClass beforeMonth = PseudoClass.getPseudoClass("before-display-month");
         PseudoClass afterMonth = PseudoClass.getPseudoClass("after-display-month");
 
-        for (LocalDate date = firstDisplayedDate ; ! date.isAfter(lastDisplayedDate) ; date = date.plusDays(1)) {
-            Label label = new Label(String.valueOf(date.getDayOfMonth()));
-            label.getStyleClass().add("calendar-cell");
-            label.pseudoClassStateChanged(beforeMonth, date.isBefore(first));
-            label.pseudoClassStateChanged(afterMonth, date.isAfter(last));
+        for (LocalDate date = firstDisplayedDate ; ! date.isAfter(lastDisplayedDate) ; date = date.plusDays(1))
+        {
+            Text t = new Text(String.valueOf(date.getDayOfMonth()));
+            t.getStyleClass().add("calendar-cell");
+            t.setTextAlignment(TextAlignment.CENTER);
+            t.pseudoClassStateChanged(beforeMonth, date.isBefore(first));
+            t.pseudoClassStateChanged(afterMonth, date.isAfter(last));
+            t.setFill(Paint.valueOf("rgb(" +
+                    config.getInt("DCalendar.Dates.InMonth.Font.Color.Red") + ", " +
+                    config.getInt("DCalendar.Dates.InMonth.Font.Color.Green") + ", " +
+                    config.getInt("DCalendar.Dates.InMonth.Font.Color.Blue") + ");")
+            );
 
-            GridPane.setHalignment(label, HPos.CENTER);
+            GridPane.setHalignment(t, HPos.CENTER);
 
             int dayOfWeek = date.get(weekFields.dayOfWeek()) ;
             int daysSinceFirstDisplayed = (int) firstDisplayedDate.until(date, ChronoUnit.DAYS);
             int weeksSinceFirstDisplayed = daysSinceFirstDisplayed / 7 ;
 
-            calendar.add(label, dayOfWeek - 1, weeksSinceFirstDisplayed + 1);
+            calendar.add(t, dayOfWeek - 1, weeksSinceFirstDisplayed + 1);
+            Debug(t.toString());
         }
     }
 

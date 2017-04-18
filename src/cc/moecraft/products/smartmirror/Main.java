@@ -135,11 +135,17 @@ public class Main extends Application
             //日期下面的日历
             config.addDefault("DCalendar.Position.Offset.X", 0);
             config.addDefault("DCalendar.Position.Offset.Y", 180);
-            config.addDefault("DCalendar.Font.Size", 18);
             config.addDefault("DCalendar.Font.Name", "Exo Light");
+            config.addDefault("DCalendar.Font.Size", 18);
             config.addDefault("DCalendar.Headers.Font.Color.Red", 255);
             config.addDefault("DCalendar.Headers.Font.Color.Green", 255);
             config.addDefault("DCalendar.Headers.Font.Color.Blue", 255);
+            config.addDefault("DCalendar.Dates.InMonth.Font.Color.Red", 255);
+            config.addDefault("DCalendar.Dates.InMonth.Font.Color.Green", 255);
+            config.addDefault("DCalendar.Dates.InMonth.Font.Color.Blue", 255);
+            config.addDefault("DCalendar.Dates.NotInMonth.Font.Color.Red", 255);
+            config.addDefault("DCalendar.Dates.NotInMonth.Font.Color.Green", 255);
+            config.addDefault("DCalendar.Dates.NotInMonth.Font.Color.Blue", 255);
 
 
             saveConfig();

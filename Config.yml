@@ -36,11 +36,24 @@ DCalendar:
       X: 0
       Y: 180
   Font:
-    Size: 18
     Name: Exo Light
+    Size: 18
   Headers:
     Font:
       Color:
         Red: 255
         Green: 255
         Blue: 255
+  Dates:
+    InMonth:
+      Font:
+        Color:
+          Red: 255
+          Green: 255
+          Blue: 255
+    NotInMonth:
+      Font:
+        Color:
+          Red: 255
+          Green: 255
+          Blue: 255
